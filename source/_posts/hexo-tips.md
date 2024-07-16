@@ -2,6 +2,7 @@
 title: hexo tips
 date: 2024-07-10 23:21:17
 tags: [tech, blog]
+categories: code
 ---
 
 clean cache(public folder): `hexo clean`
