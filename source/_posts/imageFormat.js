@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // String to replace the root directory of the images
-const newRootDir = '/new/root/directory';
+const newRootDir = 'https:///blog.gu33gu.asia/_resources/';
 
 // Get the directory where the script is located
 const directoryPath = path.dirname(__filename);
@@ -20,7 +20,7 @@ function replaceImagePaths(filePath, newRootDir) {
         const newData = data.replace(imgRegex, (match, imgPath) => {
             const fileName = path.basename(imgPath); // Extract the file name
             const newPath = path.join(newRootDir, fileName); // Construct the new path
-            return `![[${newPath}]]`;
+            return `![](<${newPath}> "a")`;
         });
 
         fs.writeFile(filePath, newData, 'utf8', err => {

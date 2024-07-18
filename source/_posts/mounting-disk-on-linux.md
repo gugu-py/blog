@@ -9,7 +9,7 @@ categories: code
 
 To mount a device with certain rights, you can use the `-o Option` directive while mounting the device.
 
-![[/new/root/directory/Pasted image 20240706213437.png]]
+![a](<https://blog.gu33gu.asia/_resources/Pasted image 20240706213437.png> "a")
 
 In the line `nosuid,nodev,nofail,x-gvfs-show,uid=gugu`, add `uid=gugu` to assign the ownership to user `gugu`. 
 

@@ -122,7 +122,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -133,14 +133,14 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+        <a href="https://github.com/gugu-py" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gugu-py" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
       </span>
   </div>
 
@@ -155,6 +155,641 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.gu33gu.asia/2024/07/18/sport-csc-site-Re/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HiddenBlue">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Less is More">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Less is More">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/18/sport-csc-site-Re/" class="post-title-link" itemprop="url">sport-csc.site Re</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-07-18 22:55:26 / Modified: 23:07:40" itemprop="dateCreated datePublished" datetime="2024-07-18T22:55:26+08:00">2024-07-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240318104320.png" title="a"></p>
+<blockquote>
+<p>How does a website work?<br>An example -&gt; sport-csc.site</p>
+</blockquote>
+<h2 id="structure-of-a-website"><a href="#structure-of-a-website" class="headerlink" title="structure of a website"></a>structure of a website</h2><p><img data-src="https://blog.gu33gu.asia/_resources/a0cfd58f8f527b78c2ac36046b79978.jpg" title="a"></p>
+<blockquote>
+<p>The <strong>back end</strong> refers to parts of a computer application or a program’s code that allow it to operate.<br>The layer above the back end is the <strong>front end</strong> and it includes all software or hardware that is part of a user interface.<br> (<a target="_blank" rel="noopener" href="http://www.techtarget.com/">www.techtarget.com</a>)</p>
+</blockquote>
+<h2 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h2><blockquote>
+<p>A database is an organized collection of structured information, or data, typically stored electronically in a computer system. (<a target="_blank" rel="noopener" href="https://www.oracle.com/database/what-is-database/">What Is a Database | Oracle</a>)</p>
+</blockquote>
+<p>Database is a place where we store our data. Data within the most common types of databases in operation today is typically modeled in rows and columns in a series of tables to make processing and data querying efficient, its term is called <strong>Relational Database</strong>. Usually, the language SQL is used to operate it.<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240317202330.png" title="a"><br>This is a table to store information of houses. U can see 3 types of information are included: id, name, color. There is sth. special on id’s icon. That means it is the <strong>primary key</strong>. In a typical database, every record has its unique primary key.</p>
+<p>There is another type of key, called <strong>foreign key</strong>. This type of key connects records and records, even from different tables! Usually, foreign key use its id to describe the reference target.<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240317202700.png" title="a"><br>This is a table to store different players. Each of the player has their primary key(id), and also foreign keys (house_id) to connect it with the house table. This example shows how foreign key connect records in two different tables.<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240317203029.png" title="a"><br>This table stores information of every match. It uses foreign key to connect records from the same table(see the fields last_match_id).</p>
+<h2 id="Back-end"><a href="#Back-end" class="headerlink" title="Back end"></a>Back end</h2><p>In this website, we use Flask as our Backend system. Flask allows us to build the website in a very neat way, and can be deployed on a light server (make our budget more sustainable).<br><img data-src="https://blog.gu33gu.asia/_resources/d35e8209171771b082b6a33310ca6ce.jpg" title="a"><br>A more detailed structure.<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240317204020.png" title="a"><br>all_matches.html:<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240317204202.png" title="a"><br>This is a rough example of how the home page works. The detailed render basics will be introduced in the front end part.<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240317204431.png" title="a"><br>There are many other view functions, with similar structure.</p>
+<h2 id="Front-End"><a href="#Front-End" class="headerlink" title="Front End"></a>Front End</h2><p><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240318084717.png" title="a"><br>Front end is the place where clients see things. There are many pages in a website. In the past, programmers code every page manually. In order to make their life more easier, <strong>template</strong> was developed. By using template, we can reuse code effectively, and achieve dynamic views(when used with database). For example:<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240318085643.png" title="a"><br>The code enables us to display the management page of a single match, allowing people in the Olympic core team edit the score status. In our python code, we first pass on parameters to our template, using <code>context</code> variable.<br>The page would look like this:<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240318085908.png" title="a"><br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240318090202.png" title="a"><br>A more detailed description.</p>
+<h2 id="Deployment-and-Optimization"><a href="#Deployment-and-Optimization" class="headerlink" title="Deployment and Optimization"></a>Deployment and Optimization</h2><p>After you have done your coding, then you would want to <strong>deploy your code</strong> on a server, so that others can appreciate your masterpiece. However, deployment can be a very frustrating process. There are many things needed to be noticed, so that clients’ experience can be <strong>optimized</strong>.</p>
+<h3 id="Deploy-on-a-server"><a href="#Deploy-on-a-server" class="headerlink" title="Deploy on a server"></a>Deploy on a server</h3><p><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240318091155.png" title="a"><br>There are many ways to deploy code. These ways can be mainly classified as: <strong>serverless</strong>, and <strong>server</strong>. Serverless is rather complicated, so we used the later.<br>We first rent a lighthouse server on Tencent cloud(we now learnt this is not the best solution).<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240318091559.png" title="a"><br>It looks very cheap, only 30 RMB. In the end, we chose a solution with 45 RMB&#x2F;month. For the reason why we choose servers outside mainland, it is because the government forbid people to normally access to a website with a server in mainland without <strong>ICP filing</strong>. The process of filing would cost almost a month or more, so we choose servers outside mainland.<br>Running your website is rather simple if you want to do it simple without Nginx.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lighthouse@VM-8-17-ubuntu:~$ sudo sh ./olpk.sh</span><br></pre></td></tr></table></figure>
+<p>olpk.sh:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">cd /home/lighthouse/olympics-csc</span><br><span class="line"></span><br><span class="line">nohup python3 -u main.py &gt; nohup.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p>It is very similar to running locally.</p>
+<h3 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h3><p>The website is very slow if you access it directly -&gt; <a target="_blank" rel="noopener" href="https://dev.sport-csc.site/">https://dev.sport-csc.site</a><br>One factor that affects the speed of access is the location of server and client. Our server is located in Singapore, but we are in mainland(or Hongkong since our VPN). That is quite a long distance. To resolve this, I used a technology called <strong>CDN</strong>.</p>
+<blockquote>
+<p>A <strong>content delivery network</strong> or <strong>content distribution network</strong> (<strong>CDN</strong>) is a geographically distributed network of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Proxy_server" title="Proxy server">proxy servers</a> and their <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Data_center" title="Data center">data centers</a>. (en.wikipedia.org&#x2F;wiki&#x2F;Content_delivery_network)</p>
+</blockquote>
+<p>This kind of system allowed proxy servers to help distribute our data, which stores the resources temporarily(like 5 minutes), when the resources was requested by a client.<br>The detailed mechanism of CDN is quite complicated, so this article is not going talk about the technical detail.</p>
+<p>Another way we used, was to <strong>distribute resources on different servers</strong>. A regular size of a page is only a few kb, unless it has media files, like photos. We used a <strong>photo hosting platform</strong> to store and request photos.<br>[picture of photo hosting]</p>
+<p>Using these techniques, our website became very smooth.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.gu33gu.asia/2024/07/17/Hexo-Re/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HiddenBlue">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Less is More">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Less is More">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/17/Hexo-Re/" class="post-title-link" itemprop="url">Hexo Re</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-07-17 13:44:19" itemprop="dateCreated datePublished" datetime="2024-07-17T13:44:19+08:00">2024-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-07-18 23:07:40" itemprop="dateModified" datetime="2024-07-18T23:07:40+08:00">2024-07-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="0-Intro"><a href="#0-Intro" class="headerlink" title="0. Intro"></a>0. Intro</h2><p>For some reasons(see the blog yourself), I wanted to <strong>start my personal blog</strong>. The requirements of the blogger platform are: easy maintenance(including deployment and easy fee), and allowing custom configurations(themes, domain, font, etc.). In order to meet these requirements <del>as well as to be cool</del>, I finally chose Hexo, a .js based static website generator.</p>
+<h3 id="why-Hexo"><a href="#why-Hexo" class="headerlink" title="why Hexo"></a>why Hexo</h3><p>About the website, I first thought of flasks, as it can do most of the job if you code it properly. However, coding stuffs is time consuming when it comes to make something elegant from scratch. Although there was a good and open-source one on GitHub called <a target="_blank" rel="noopener" href="https://github.com/xpleaf/Blog_mini">Blog_mini</a>, I still forsaked the plan, as I just don’t prefer to do <strong>too much programming</strong> this time, even I merely need to make modification on finished product. In addition, since the website using flask will be based on a database. When it comes to deployment, it will <strong>cost</strong> a bit. In that way, I dropped my plan about dynamic ones<del>, although it would be a perfect opportunity to show off</del>.</p>
+<p>The only option for me, then, is <strong>static website</strong>. I would definitely NOT code one from scratch, so I needed to choose a pre-built tool to help me generate one. Compared to other pre-built generators, Hexo has a <strong>good community eco-system</strong>, making its customization effective. Alongside its <strong>aptness to deploy</strong> and intergation with git for version control, this becomes an ideal tool to keep my blogs.</p>
+<h2 id="1-Environment"><a href="#1-Environment" class="headerlink" title="1. Environment"></a>1. Environment</h2><p>Hexo requires Node.js and git. To install the prequisites and Hexo itself, the official document of Hexo has given detailed steps to follow along. Here is a copy from <a target="_blank" rel="noopener" href="https://hexo.io/docs/">Documentation | Hexo</a>.</p>
+<h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><p>Installing Hexo is quite easy and only requires the following beforehand:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://nodejs.org/">Node.js</a> (Should be at least Node.js 10.13, recommends 12.0 or higher)</li>
+<li><a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a></li>
+</ul>
+<p>If your computer already has these, congratulations! You can skip to the <a target="_blank" rel="noopener" href="https://hexo.io/docs/#Install-Hexo">Hexo installation</a> step.</p>
+<p>If not, please follow the following instructions to install all the requirements.</p>
+<h3 id="Install-Git"><a href="#Install-Git" class="headerlink" title="Install Git"></a>Install Git</h3><ul>
+<li>Windows: Download &amp; install <a target="_blank" rel="noopener" href="https://git-scm.com/download/win">git</a>.</li>
+<li>Mac: Install it with <a target="_blank" rel="noopener" href="https://brew.sh/">Homebrew</a>, <a target="_blank" rel="noopener" href="http://www.macports.org/">MacPorts</a> or <a target="_blank" rel="noopener" href="http://sourceforge.net/projects/git-osx-installer/">installer</a>.</li>
+<li>Linux (Ubuntu, Debian): <code>sudo apt-get install git-core</code></li>
+<li>Linux (Fedora, Red Hat, CentOS): <code>sudo yum install git-core</code></li>
+</ul>
+<blockquote>
+<p><strong>For Mac users</strong></p>
+<p>You may encounter some problems when compiling. Please install Xcode from App Store first. After Xcode is installed, open Xcode and go to <strong>Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install</strong> to install command line tools.</p>
+</blockquote>
+<h3 id="Install-Node-js"><a href="#Install-Node-js" class="headerlink" title="Install Node.js"></a>Install Node.js</h3><p>Node.js provides <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">official installer</a> for most platforms.</p>
+<p>Alternative installation methods:</p>
+<ul>
+<li>Windows: Install it with <a target="_blank" rel="noopener" href="https://github.com/jasongin/nvs/">nvs</a> (recommended) or <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm">nvm</a>.</li>
+<li>Mac: Install it with <a target="_blank" rel="noopener" href="https://brew.sh/">Homebrew</a> or <a target="_blank" rel="noopener" href="http://www.macports.org/">MacPorts</a>.</li>
+<li>Linux (DEB&#x2F;RPM-based): Install it with <a target="_blank" rel="noopener" href="https://github.com/nodesource/distributions">NodeSource</a>.</li>
+<li>Others: Install it through respective package manager. Refer to <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/package-manager/">the guide</a> provided by Node.js.</li>
+</ul>
+<p>nvs is also recommended for Mac and Linux to avoid possible permission issue.</p>
+<blockquote>
+<p><strong>Windows</strong></p>
+<p>If you use the official installer, make sure <strong>Add to PATH</strong> is checked (it’s checked by default).</p>
+</blockquote>
+<blockquote>
+<p><strong>Mac &#x2F; Linux</strong></p>
+<p>If you encounter <code>EACCES</code> permission error when trying to install Hexo, please follow <a target="_blank" rel="noopener" href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally">the workaround</a> provided by npmjs; overriding with root&#x2F;sudo is highly discouraged.</p>
+</blockquote>
+<blockquote>
+<p><strong>Linux</strong></p>
+<p>If you installed Node.js using Snap, you may need to manually run <code>npm install</code> in the target folder when <a target="_blank" rel="noopener" href="https://hexo.io/docs/commands#init">initializing</a> a blog.</p>
+</blockquote>
+<h3 id="Install-Hexo"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</h3><p>Once all the requirements are installed, you can install Hexo with npm:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;$ npm install -g hexo-cli&lt;/span&gt;&lt;br&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Advanced-installation-and-usage"><a href="#Advanced-installation-and-usage" class="headerlink" title="Advanced installation and usage"></a>Advanced installation and usage</h3><p>Advanced users may prefer to install and use <code>hexo</code> package instead.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;$ npm install hexo&lt;/span&gt;&lt;br&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Once installed, you can run Hexo in two ways:</p>
+<ol>
+<li><code>npx hexo &lt;command&gt;</code></li>
+<li>Linux users can set relative path of <code>node_modules/</code> folder:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;&lt;span&gt;echo&lt;/span&gt; &lt;span&gt;&#x27;PATH=&quot;$PATH:./node_modules/.bin&quot;&#x27;&lt;/span&gt; &amp;gt;&amp;gt; ~/.profile&lt;/span&gt;&lt;br&gt;</span><br></pre></td></tr></table></figure>
+
+<p>then run Hexo using <code>hexo &lt;command&gt;</code></p>
+<h3 id="Required-Node-js-version"><a href="#Required-Node-js-version" class="headerlink" title="Required Node.js version"></a>Required Node.js version</h3><p>If you are stuck with older Node.js, you can consider installing a past version of Hexo.</p>
+<p>Please note we do not provide bugfixes to past versions of Hexo.</p>
+<p>We highly recommend to always install the <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/hexo?activeTab=versions">latest version</a> of Hexo and the <a target="_blank" rel="noopener" href="https://hexo.io/docs/#Requirements">recommended version</a> of Node.js, whenever possible.</p>
+<table>
+<thead>
+<tr>
+<th>Hexo version</th>
+<th>Minimum (Node.js version)</th>
+<th>Less than (Node.js version)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7.0+</td>
+<td>14.0.0</td>
+<td>latest</td>
+</tr>
+<tr>
+<td>6.2+</td>
+<td>12.13.0</td>
+<td>latest</td>
+</tr>
+<tr>
+<td>6.0+</td>
+<td>12.13.0</td>
+<td>18.5.0</td>
+</tr>
+<tr>
+<td>5.0+</td>
+<td>10.13.0</td>
+<td>12.0.0</td>
+</tr>
+<tr>
+<td>4.1 - 4.2</td>
+<td>8.10</td>
+<td>10.0.0</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>8.6</td>
+<td>8.10.0</td>
+</tr>
+<tr>
+<td>3.3 - 3.9</td>
+<td>6.9</td>
+<td>8.0.0</td>
+</tr>
+<tr>
+<td>3.2 - 3.3</td>
+<td>0.12</td>
+<td>unknown</td>
+</tr>
+<tr>
+<td>3.0 - 3.1</td>
+<td>0.10 or iojs</td>
+<td>unknown</td>
+</tr>
+<tr>
+<td>0.0.1 - 2.8</td>
+<td>0.10</td>
+<td>unknown</td>
+</tr>
+<tr>
+<td>(End of copy)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="2-Build-Respository"><a href="#2-Build-Respository" class="headerlink" title="2. Build Respository"></a>2. Build Respository</h2><p>Select a folder for your Hexo project. <em>It is recommended that the path of the folder does not contain characters other than English.</em> Run these command to initilize Hexo.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;  </span><br><span class="line">cd &lt;folder&gt;  </span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>To test the initilization, use:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>This will print out something like:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop. </span><br></pre></td></tr></table></figure>
+
+<p>And the <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> will look like:<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240715220318.png" title="a"></p>
+<p>If you see those, it means your initialization is successful.</p>
+<h2 id="3-Put-into-use"><a href="#3-Put-into-use" class="headerlink" title="3. Put into use"></a>3. Put into use</h2><blockquote>
+<p><code>/</code> or <code>\</code> means the root directory of your Hexo project</p>
+</blockquote>
+<h3 id="New-Post"><a href="#New-Post" class="headerlink" title="New Post"></a>New Post</h3><p>If you want to write a new post, type in the terminal:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &#x27;&lt;post title&gt;&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">or</span></span><br><span class="line">hexo new &lt;scaffolds&gt; &#x27;&lt;post title&gt;&#x27; # later explained</span><br></pre></td></tr></table></figure>
+
+<p>Hexo will create a Markdown file as your post file in the <code>\source\_posts\&lt;post title&gt;.md</code>. <strong>Edit this markdown file to modify your blog content.</strong></p>
+<h4 id="Front-Matter"><a href="#Front-Matter" class="headerlink" title="Front Matter"></a>Front Matter</h4><p>In your newly created blog, titled <code>a</code>, for example, you will find this at the start of the file:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">&#x27;&#x27;</span><span class="string">&#x27;a&#x27;</span><span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-07-15 22:06:57</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<p>This is called <strong>Front Matter</strong> in Hexo, a yaml config header. As you can see, this header contains meta-data of your blog, like the title, date, and tags. The basic idea of yaml is to use a <code>key: value</code> to let Hexo get these information. There are also other options which you can find in official document <a target="_blank" rel="noopener" href="https://hexo.io/docs/front-matter">Front-matter</a>. In this example, I used <code>categories</code>. To use multiple value for one key, the format is <code>key: [value1, value2, etc.]</code>. In that way, my Front Matter will look like this:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">&#x27;&#x27;</span><span class="string">&#x27;a&#x27;</span><span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-07-15 22:06:57</span></span><br><span class="line"><span class="attr">tags:</span> [<span class="string">Anime</span>, <span class="string">Frieren</span>]</span><br><span class="line"><span class="attr">categories:</span> <span class="string">Thought</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<p>After this Front Matter, you can write your content happily in Markdown now. However, if I need to add the categories every time I create a post, I will go crazy. To avoid that we should apply Scaffolds.</p>
+<h4 id="Scaffolds"><a href="#Scaffolds" class="headerlink" title="Scaffolds"></a>Scaffolds</h4><p>This time the official document works, here is a copy:</p>
+<p>When creating posts, Hexo will build files based on the corresponding file in <code>scaffolds</code> folder. For example:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new photo &quot;My Gallery&quot;</span><br></pre></td></tr></table></figure>
+
+<p>When you run this command, Hexo will try to find <code>photo.md</code> in the <code>scaffolds</code> folder and build the post based on it.<br>(End of copy)</p>
+<p>For example, you created <code>a.md</code> in <code>\scaffolds\</code> based on <code>post.md</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> &#123;&#123; <span class="string">title</span> &#125;&#125;</span><br><span class="line"><span class="attr">date:</span> &#123;&#123; <span class="string">date</span> &#125;&#125;</span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="attr">categories:</span> <span class="comment"># this line is added; you can also add default value(s) to it</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<p>Then you can type <code>hexo new a &#39;1&#39;</code> to create a blog titled ‘1’, with <code>categories</code> in the front matter. </p>
+<h4 id="Modify-post"><a href="#Modify-post" class="headerlink" title="Modify post"></a>Modify post</h4><p>Just edit the markdown file will work.</p>
+<h3 id="Generate-your-site"><a href="#Generate-your-site" class="headerlink" title="Generate your site"></a>Generate your site</h3><p>Very simple:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>All the source files are in the <code>/public/</code>. They can be used to deploy on other servers.</p>
+<h2 id="4-Customization"><a href="#4-Customization" class="headerlink" title="4. Customization"></a>4. Customization</h2><p>If you want to go further by customizing your site, you will need to configure your theme.</p>
+<h3 id="Basic-Configuration"><a href="#Basic-Configuration" class="headerlink" title="Basic Configuration"></a>Basic Configuration</h3><p>The basic meta-data of your blog, like authorship, title, description, etc. is configured in the <code>/_config.yml</code>. <strong>Simply follow the comments wrote in the file to add on your information.</strong> Part of my site configuration:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">Less</span> <span class="string">is</span> <span class="string">More</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">HiddenBlue</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">en</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">http://blog.gu33gu.asia</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Install-Themes"><a href="#Install-Themes" class="headerlink" title="Install Themes"></a>Install Themes</h3><p>Explore your theme here: <a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes | Hexo</a></p>
+<p>In this Re blog, I will use <code>NexT</code> as example.</p>
+<p>First, get into its document website: <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">Getting Started | NexT (theme-next.js.org)</a></p>
+<p>Follow its tutorial to install the theme. <em>If you encounter any problem, turn down your VPN completely.</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd hexo-site # your project folder</span><br><span class="line">git clone https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<p>In the <code>/_config.yml</code>, search for <code>theme</code>, and change the its value to <code>next</code> (your theme’s name):</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+
+<p>Copy the content of <code>/themes/next/_config.yml</code> to a new file <code>/_config.next.yml</code>. If it is other theme, the new file’s name should be <code>_config.&lt;theme name&gt;.yml</code>.This is the file where you can configure your theme.</p>
+<h3 id="Configure-your-Theme"><a href="#Configure-your-Theme" class="headerlink" title="Configure your Theme"></a>Configure your Theme</h3><p>Basically, you just need to follow the comments in the <code>/_config.next.yaml</code> to edit the configuration. If you are looking for a specific setting, just search the keyword in the file, and you will locate the related key. For example, you want to enable dark mode. Search for <code>dark</code>, you will locate the line:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">darkmode:</span> <span class="literal">true</span> <span class="comment"># change this to false to disable darkmode</span></span><br></pre></td></tr></table></figure>
+<p>There is just a few things that the comment does not state clearly. Here is the explanation for these parts:</p>
+<h4 id="Customize-Menu"><a href="#Customize-Menu" class="headerlink" title="Customize Menu"></a>Customize Menu</h4><p>If you want to add your own options under the main menu, add the following code under the <code>menu</code> section in <code>/_config.next.yaml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line"><span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line"><span class="attr">Code:</span> <span class="string">/categories/code/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-code</span></span><br><span class="line"><span class="attr">Elucidator:</span> <span class="string">/categories/thought/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-pen-nib</span> <span class="comment"># newly added</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span> <span class="comment"># newly added</span></span><br></pre></td></tr></table></figure>
+
+<p>This will add two options linking to the category <code>code</code> or <code>thought</code>. The code after <code>||</code> is the name of icon from <a target="_blank" rel="noopener" href="https://fontawesome.com/">Font Awesome</a>. Copy its code similar to the format as the example provided in the <code>/_config.next.yaml</code>.</p>
+<p><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240716230513.png" title="a"></p>
+<p>By adding these code, my menu became:</p>
+<p><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240716230725.png" title="a"></p>
+<h2 id="5-Deployment"><a href="#5-Deployment" class="headerlink" title="5. Deployment"></a>5. Deployment</h2><h3 id="Host"><a href="#Host" class="headerlink" title="Host"></a>Host</h3><p>There are several ways to host Hexo pages. There are mainly three ways:</p>
+<ul>
+<li>Host on GitHub (for free)</li>
+<li><strong>Host on an object storage bucket</strong> (cost nearly none)</li>
+<li>Host on a server (cost)</li>
+</ul>
+<p>Personally, I prefer the second option, as it has much fun. The first option has already lots of tutorials on the Internet, search them yourself.</p>
+<p>Most of the object storage platforms, like Google, Tencent, etc., support to host static website on it. I used Tencent, because it is cheap and easy. This bucket costs based on network flowing out of the bucket. 1 GB of network costs </p>
+<p>All the buckets are the same to <strong>setup the bucket</strong>:</p>
+<ol>
+<li>When choosing region of the bucket, just not choose area in mainland China, so that you can skip filing <del>which is shit</del> in order to get an SSL certificate. The region should be near your location to guarantee the speed.</li>
+<li>set the permissions of all users to be able to view the content of file. Read only!</li>
+<li>upload all the files in the <code>/public/</code> folder. Make sure the root directory of your bucket does not contain <code>public</code> folder, but the content in it(you know what I mean).</li>
+<li>see the url of your bucket, then access this url on your browser. You should be able to see your landing page.</li>
+</ol>
+<p>After modifying your website locally, do the following actions to <strong>update the bucket</strong> remotely:</p>
+<ol>
+<li>run <code>hexo g</code></li>
+<li>sync local <code>public</code> folder and remote root directory</li>
+<li>your website is then up-to-date</li>
+</ol>
+<h3 id="Domain-Optional"><a href="#Domain-Optional" class="headerlink" title="Domain (Optional)"></a>Domain (Optional)</h3><h4 id="Register"><a href="#Register" class="headerlink" title="Register"></a>Register</h4><p>There are many popular platforms to register domain, like Google Cloud, GoDaddy, Cloudflare, Tencent, etc. The prize varies a lot, and I suggest you can try platform in China, because they are much cheaper. I purchased a domain <code>gu33gu.asia</code> for only 6 RMB (0.9 US$) for the first year. The regular prize for a year is 30 RMB (4.2 US$). That is totally acceptable.</p>
+<h4 id="Add-record"><a href="#Add-record" class="headerlink" title="Add record"></a>Add record</h4><p>To let the domain function, you have to add record to trace your bucket’s IP. Most bucket platform will provide its own domain, so you just add a <code>CNAME</code> record with the value of the provided domain. For example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type: CNAME</span><br><span class="line">name: blog (this part can be whatever you want)</span><br><span class="line">target: (your bucket url)</span><br><span class="line">TTL: 600 (time(in second) to trace the IP, the smaller value the better)</span><br></pre></td></tr></table></figure>
+
+<p>After the record takes effect(usually after the TTL time), you should be able to access through your custom domain. For example, my domain is <code>gu33gu.asia</code>, with the record’s name <code>blog</code>, I am able to access my blog at <code>blog.gu33gu.asia</code>.</p>
+<h4 id="Cloudflare-Optional"><a href="#Cloudflare-Optional" class="headerlink" title="Cloudflare (Optional)"></a>Cloudflare (Optional)</h4><p>Using Cloudflare provides free <code>SSL</code> and protection against <code>ddos attack</code>(this usually won’t happen). In addition, its DNS is free. </p>
+<p>Register an account on Cloudflare, and follow its guidance to add Cloudflare as the DNS server. </p>
+<h4 id="SSL-Optional"><a href="#SSL-Optional" class="headerlink" title="SSL (Optional)"></a>SSL (Optional)</h4><p>Other ways to apply SSL for your domain for free other than Cloudflare, you can try Tencent free certificate. The certificate can endure 3 months. After it expires, you need to register one again. Follow its guidance will do.</p>
+<h2 id="6-Image-Hosting-Optional"><a href="#6-Image-Hosting-Optional" class="headerlink" title="6. Image Hosting (Optional)"></a>6. Image Hosting (Optional)</h2><p>Usually your blogs contain image. <strong>Hexo recommends remote URL</strong>. You can either use a third-party image hosting platform, or <strong>build your own</strong>. I built my own using a object bucket. </p>
+<p>Create a folder on the root directory of your bucket called <code>_resources</code>. You should be able to access the content within using direct URL. Upload your pictures to this folder, and format all the URL in your markdown blogs.</p>
+<p>To format them automatically, I wrote a script to help me(<code>imageFormat.js</code>):</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// String to replace the root directory of the images</span></span><br><span class="line"><span class="keyword">const</span> newRootDir = <span class="string">&#x27;/new/root/directory&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Get the directory where the script is located</span></span><br><span class="line"><span class="keyword">const</span> directoryPath = path.<span class="title function_">dirname</span>(__filename);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Function to replace image paths in a single Markdown file</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">replaceImagePaths</span>(<span class="params">filePath, newRootDir</span>) &#123;</span><br><span class="line">    fs.<span class="title function_">readFile</span>(filePath, <span class="string">&#x27;utf8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">`Error reading file <span class="subst">$&#123;filePath&#125;</span>:`</span>, err);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Regular expression to match image paths in the format ![[path]]</span></span><br><span class="line">        <span class="keyword">const</span> imgRegex = <span class="regexp">/!\[\[[^\]]*_resources\/([^\]]+)\]\]/g</span>;</span><br><span class="line">        <span class="keyword">const</span> newData = data.<span class="title function_">replace</span>(imgRegex, <span class="function">(<span class="params">match, imgPath</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> fileName = path.<span class="title function_">basename</span>(imgPath); <span class="comment">// Extract the file name</span></span><br><span class="line">            <span class="keyword">const</span> newPath = path.<span class="title function_">join</span>(newRootDir, fileName); <span class="comment">// Construct the new path</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">`![[<span class="subst">$&#123;newPath&#125;</span>]]`</span>;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        fs.<span class="title function_">writeFile</span>(filePath, newData, <span class="string">&#x27;utf8&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">`Error writing file <span class="subst">$&#123;filePath&#125;</span>:`</span>, err);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Successfully updated image paths in <span class="subst">$&#123;filePath&#125;</span>`</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Function to process all Markdown files in a directory</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">processDirectory</span>(<span class="params">directoryPath, newRootDir</span>) &#123;</span><br><span class="line">    fs.<span class="title function_">readdir</span>(directoryPath, <span class="function">(<span class="params">err, files</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">`Error reading directory <span class="subst">$&#123;directoryPath&#125;</span>:`</span>, err);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        files.<span class="title function_">forEach</span>(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> filePath = path.<span class="title function_">join</span>(directoryPath, file);</span><br><span class="line">            <span class="keyword">if</span> (path.<span class="title function_">extname</span>(file) === <span class="string">&#x27;.md&#x27;</span>) &#123;</span><br><span class="line">                <span class="title function_">replaceImagePaths</span>(filePath, newRootDir);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Start processing</span></span><br><span class="line"><span class="title function_">processDirectory</span>(directoryPath, newRootDir);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Modify accordingly in reference to the comments, especially the <code>newRootDir</code> and <code>imgRegex</code>.</p>
+<p>Put this script under the directory with your blogs (<code>_posts</code> folder), and use <code>node imageFormat.js</code> to run it. This will automatically format the image URL of all the markdown files under the same directory.</p>
+<h2 id="7-END"><a href="#7-END" class="headerlink" title="7. END?"></a>7. END?</h2><p>I have just built a personal blog, a new body without an interesting soul. To inject soul into this meaningless body to make it of significance, I need to keep adding content into it. <strong>Building a blog is just the beginning. Keep updating it to achieve eminence.</strong></p>
+<blockquote>
+<p>问渠那得清如许？为有源头活水来。 ——朱熹《观书有感》</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.gu33gu.asia/2024/07/16/imageFormat/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HiddenBlue">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Less is More">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Less is More">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/16/imageFormat/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-07-16 09:31:23" itemprop="dateCreated datePublished" datetime="2024-07-16T09:31:23+08:00">2024-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-07-18 23:04:04" itemprop="dateModified" datetime="2024-07-18T23:04:04+08:00">2024-07-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          const fs = require('fs');
+const path = require('path');
+
+// String to replace the root directory of the images
+const newRootDir = 'https:///blog.gu33gu.asia/_resources/';
+
+// Get the directory where the script is located
+const directoryPath = path.dirname(__filename);
+
+// Function to replace image paths in a single Markdown file
+function replaceImagePaths(filePath, newRootDir) {
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error(`Error reading file ${filePath}:`, err);
+            return;
+        }
+
+        // Regular expression to match image paths in the format ![[path]]
+        const imgRegex = /!\[\[[^\]]*_resources\/([^\]]+)\]\]/g;
+        const newData = data.replace(imgRegex, (match, imgPath) => {
+            const fileName = path.basename(imgPath); // Extract the file name
+            const newPath = path.join(newRootDir, fileName); // Construct the new path
+            return `![](<${newPath}> "a")`;
+        });
+
+        fs.writeFile(filePath, newData, 'utf8', err => {
+            if (err) {
+                console.error(`Error writing file ${filePath}:`, err);
+                return;
+            }
+            console.log(`Successfully updated image paths in ${filePath}`);
+        });
+    });
+}
+
+// Function to process all Markdown files in a directory
+function processDirectory(directoryPath, newRootDir) {
+    fs.readdir(directoryPath, (err, files) => {
+        if (err) {
+            console.error(`Error reading directory ${directoryPath}:`, err);
+            return;
+        }
+
+        files.forEach(file => {
+            const filePath = path.join(directoryPath, file);
+            if (path.extname(file) === '.md') {
+                replaceImagePaths(filePath, newRootDir);
+            }
+        });
+    });
+}
+
+// Start processing
+processDirectory(directoryPath, newRootDir);
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.gu33gu.asia/2024/07/16/mounting-disk-on-linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HiddenBlue">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Less is More">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Less is More">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/16/mounting-disk-on-linux/" class="post-title-link" itemprop="url">mounting disk on linux</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-07-16 09:30:20" itemprop="dateCreated datePublished" datetime="2024-07-16T09:30:20+08:00">2024-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-07-18 23:07:40" itemprop="dateModified" datetime="2024-07-18T23:07:40+08:00">2024-07-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://superuser.com/questions/320415/mount-device-with-specific-user-rights">https://superuser.com/questions/320415/mount-device-with-specific-user-rights</a></p>
+</blockquote>
+<p>To mount a device with certain rights, you can use the <code>-o Option</code> directive while mounting the device.</p>
+<p><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240706213437.png" alt="a" title="a"></p>
+<p>In the line <code>nosuid,nodev,nofail,x-gvfs-show,uid=gugu</code>, add <code>uid=gugu</code> to assign the ownership to user <code>gugu</code>. </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -200,7 +835,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-07-12 23:07:16" itemprop="dateModified" datetime="2024-07-12T23:07:16+08:00">2024-07-12</time>
+      <time title="Modified: 2024-07-18 23:07:40" itemprop="dateModified" datetime="2024-07-18T23:07:40+08:00">2024-07-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -288,7 +923,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-07-12 23:04:34" itemprop="dateModified" datetime="2024-07-12T23:04:34+08:00">2024-07-12</time>
+      <time title="Modified: 2024-07-18 23:07:40" itemprop="dateModified" datetime="2024-07-18T23:07:40+08:00">2024-07-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
