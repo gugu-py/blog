@@ -1,7 +1,7 @@
 ---
 title: sport-csc.site Re
 date: 2024-07-18 22:55:26
-tags: [Website, Re]
+tags: [website, re, Python]
 categories: code
 ---
 

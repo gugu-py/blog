@@ -100,6 +100,7 @@ menu:
   about: /about/ || fa fa-user
   Code: /categories/code/ || fa fa-code
   Elucidator: /categories/thought/ || fa fa-pen-nib
+  Foreigners: /categories/foreigners/ || fa fa-file-arrow-down
   tags: /tags/ || fa fa-tags
   # categories: /categories/ || fa fa-th
   #archives: /archives/ || fa fa-archive
