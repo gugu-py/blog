@@ -122,7 +122,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -133,7 +133,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -233,6 +233,201 @@
 <li>Click on the title of the blog to have a better reading experience.</li>
 <li><strong>cite your sources if you copy content.</strong></li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.gu33gu.asia/2024/10/14/Service-Unavailable-Error-Solution/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HiddenBlue">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Untitled Dream">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Untitled Dream">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/10/14/Service-Unavailable-Error-Solution/" class="post-title-link" itemprop="url">Service Unavailable Error Solution</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-10-14 18:30:07 / Modified: 18:30:51" itemprop="dateCreated datePublished" datetime="2024-10-14T18:30:07+08:00">2024-10-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Debugging-‘Service-Unavailable’-Errors-in-Dockerized-Flask-Apps-with-Gunicorn"><a href="#Debugging-‘Service-Unavailable’-Errors-in-Dockerized-Flask-Apps-with-Gunicorn" class="headerlink" title="Debugging ‘Service Unavailable’ Errors in Dockerized Flask Apps with Gunicorn"></a>Debugging ‘Service Unavailable’ Errors in Dockerized Flask Apps with Gunicorn</h1><blockquote>
+<p>Deploying a Flask app with Docker and Gunicorn can sometimes lead to frustrating <code>&quot;Service Unavailable&quot;</code> errors without helpful logs. This post explains why these errors occur and how to fix them effectively.</p>
+</blockquote>
+<h2 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h2><p>Gunicorn often suppresses error messages, making troubleshooting “Service Unavailable” errors difficult. This lack of visibility can hide issues like missing dependencies or incorrect configurations, leading to wasted time and confusion.</p>
+<h2 id="The-Solution"><a href="#The-Solution" class="headerlink" title="The Solution"></a>The Solution</h2><h3 id="1-Use-Flask-for-Testing"><a href="#1-Use-Flask-for-Testing" class="headerlink" title="1. Use Flask for Testing"></a>1. Use Flask for Testing</h3><p>To easily spot errors, start by updating the Dockerfile to use the Flask development server:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.9</span>-slim</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install --no-cache-dir -r requirements.txt</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;app.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>Build and run the Docker container:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build -t flask-app .</span><br><span class="line">docker run -p 8080:8080 flask-app</span><br></pre></td></tr></table></figure>
+
+<p>This approach makes it easier to identify any missing dependencies or configuration problems before deploying the production version.</p>
+<h3 id="2-Switch-to-Gunicorn-for-Production"><a href="#2-Switch-to-Gunicorn-for-Production" class="headerlink" title="2. Switch to Gunicorn for Production"></a>2. Switch to Gunicorn for Production</h3><p>After resolving any issues, update the Dockerfile to use Gunicorn for production:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.9</span>-slim</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install --no-cache-dir -r requirements.txt</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> <span class="built_in">exec</span> gunicorn --<span class="built_in">bind</span> :<span class="variable">$PORT</span> --workers 2 --threads 4 --log-level debug app:app</span></span><br></pre></td></tr></table></figure>
+
+<p>Setting the log level to <code>debug</code> helps reveal more detailed information if something goes wrong, making it easier to identify potential problems.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.gu33gu.asia/2024/09/27/python-installation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HiddenBlue">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Untitled Dream">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Untitled Dream">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/27/python-installation/" class="post-title-link" itemprop="url">How to install Python in a professional way</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-09-27 22:28:35 / Modified: 22:42:19" itemprop="dateCreated datePublished" datetime="2024-09-27T22:28:35+08:00">2024-09-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>In every tutorial, first read to the end, and then operate.</p>
+</blockquote>
+<p>watch this video(not original): </p>
+<ul>
+<li>Windows <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ljFwYKL6-1U&t=13s">Anaconda and Visual Studio Code Setup (youtube.com)</a></li>
+<li>Mac <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0Hhqf8L-b_0">ANACONDA Tutorial for Python | How to Install Anaconda on Mac OS and How to use Anaconda for Python (youtube.com)</a></li>
+</ul>
+<p>Or you use this tutorial(original work) to download Anaconda and VScode(or Pycharm).</p>
+<h2 id="0-Why-Anaconda-reason-of-using-virtual-env"><a href="#0-Why-Anaconda-reason-of-using-virtual-env" class="headerlink" title="0. Why Anaconda (reason of using virtual env)"></a>0. Why Anaconda (reason of using virtual env)</h2><p>When you have multiple projects, and they requires different version of one package, then you will meet trouble if you don’t use virtual env. Also, it is a good way for you to select a suitable Python version(some packages can only run on 3.7, while others can only run on 3.11, for example). </p>
+<blockquote>
+<p>When you are reading instructions, make sure read to the end first, then operate on your machine.</p>
+</blockquote>
+<h2 id="1-Install-Anaconda"><a href="#1-Install-Anaconda" class="headerlink" title="1. Install Anaconda"></a>1. Install Anaconda</h2><p><a target="_blank" rel="noopener" href="https://www.anaconda.com/download/">https://www.anaconda.com/download/</a><br>download it, and run .exe or whatever.</p>
+<h3 id="Verify-your-installation"><a href="#Verify-your-installation" class="headerlink" title="Verify your installation"></a>Verify your installation</h3><p>If you are Windows, open ‘Anaconda Prompt’ in your program list; if you are Mac, open Terminal.<br>You should see sth. like this:<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240314220856.png" title="a"></p>
+<h2 id="2-Install-Python-Virtual-Environment"><a href="#2-Install-Python-Virtual-Environment" class="headerlink" title="2. Install Python (Virtual Environment)"></a>2. Install Python (Virtual Environment)</h2><p>type in your anaconda terminal:<br><code>conda create -n your_env_name python=x.x</code><br>your_env_name is your virtual environment’s name, while x.x is the version of Python. Usually, we use 3.11</p>
+<h2 id="3-How-to-use"><a href="#3-How-to-use" class="headerlink" title="3. How to use"></a>3. How to use</h2><p>type in <code>conda activate your_env_name</code> to activate your environment<br>type <code>conda deactive</code> to quit environment</p>
+<h3 id="Settings-in-VScode-or-Pycharm"><a href="#Settings-in-VScode-or-Pycharm" class="headerlink" title="Settings in VScode  or Pycharm"></a>Settings in VScode  or Pycharm</h3><blockquote>
+<p>VScode normally would scan your disk to find Python, but sometimes things can go wrong.</p>
+</blockquote>
+<h4 id="VScode"><a href="#VScode" class="headerlink" title="VScode"></a>VScode</h4><p><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240314221501.png" title="a"><br>Click on that red box position, and you will see:<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240314221556.png" title="a"><br>Then you select your environment(your env name would be in ‘’)<br>If you cannot find it, type in the absolute route(full route)  of your Python.exe(Windows) or Python(Mac). (Usually this won’t happen)</p>
+<p>When using Jupyter Notebook, simply click:<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240314221817.png" title="a"><br>Then you follow its instruction to find your environment.</p>
+<h4 id="Pycharm"><a href="#Pycharm" class="headerlink" title="Pycharm"></a>Pycharm</h4><p>Quite similar to VScode, click<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240314221944.png" title="a"><br>Then select ‘Add New Interpreter’ -&gt; ‘Add local Interpreter’ -&gt; ‘system Interpreter’ -&gt; click on ‘…’<br><img data-src="https://blog.gu33gu.asia/_resources/Pasted%20image%2020240314222142.png" title="a"><br>Select your Python.exe(Windows) or Python(Mac)</p>
+<h2 id="4-Done"><a href="#4-Done" class="headerlink" title="4. Done"></a>4. Done</h2><p>It is easy, is it not?</p>
 
       
     </div>
@@ -1097,304 +1292,6 @@
 <h2 id="Ground-truth选取"><a href="#Ground-truth选取" class="headerlink" title="Ground-truth选取"></a>Ground-truth选取</h2><p>爬虫检测的一大困难在于，没有一个真值可以作为参考。就像机器学习里面的无监督学习。上面列的所有的特征、规则都是基于经验的，就算一个请求被标记为爬虫，哪怕概率再高，我们也无法保证它真的是爬虫。</p>
 <p>但是在实际应用中，还是可以有一些洞见可以为爬虫检测提供一些指引。这些洞见是基于爬虫和真实人类行为之间的差异，例如对携程来说，它的网站提供的是酒店、行程的预定，爬虫显然是不会下单付款的，而真实用户有较大的可能性会付款。那么基于这样的一个事实，可以构建一个“肯定是真实用户”的列表，如果某个bev_id被标记为爬虫，但是最终这个bev_id对应的用户付款了，那么相应的检测规则就有必要重新考量一下了。类似的情况在不同的网站不同的场景会有所不同，但出发点都是一样的——寻找爬虫与真实用户的不同。</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>虽然前面列出的规则看起来都比较显而易见，但是想应用得好还得根据具体问题具体分析，设定相关的阈值。比如同一个ua&#x2F;bev_id的访问量，多少算多？阈值的设定最好是基于统计的，即先对网站的数据做一个分析，然后按一定比例设定阈值，比如最大访问量的99%。这些探究过程比较耗时，但也比较有意思，在翻阅数据的时候可能会有一些有意思的发现。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.gu33gu.asia/2024/07/21/ChatGPT-%E6%9C%89%E4%BB%80%E4%B9%88%E6%96%B0%E5%A5%87%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%EF%BC%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="HiddenBlue">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Untitled Dream">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Untitled Dream">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/21/ChatGPT-%E6%9C%89%E4%BB%80%E4%B9%88%E6%96%B0%E5%A5%87%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%EF%BC%9F/" class="post-title-link" itemprop="url">ChatGPT 有什么新奇的使用方式？</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-07-21 11:49:00" itemprop="dateCreated datePublished" datetime="2024-07-21T11:49:00+08:00">2024-07-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-08 19:38:42" itemprop="dateModified" datetime="2024-09-08T19:38:42+08:00">2024-09-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/foreigners/" itemprop="url" rel="index"><span itemprop="name">foreigners</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/duan1522630316/article/details/135119602">https://blog.csdn.net/duan1522630316/article/details/135119602</a></p>
-</blockquote>
-<p><strong>来看看 OpenAI 内部是如何使用 ChatGPT 的。</strong></p>
-<p>目前（4月29日）距离ChatGPT发布了已经半年，这期间大家基本上把能想到的ChatGPT的使用方法都研究遍了——从写作、写代码，到翻译、英语润色，再到角色扮演等等。</p>
-<p><img data-src="https://picx.zhimg.com/50/v2-9d01c2c526719376fa1a35e3f9f3e35c_720w.jpg?source=1940ef5c"></p>
-<p>所以，现在这个阶段再提到“ChatGPT<strong>新奇</strong>的使用方式”，恐怕只能靠OpenAI自己出手了。</p>
-<p>然而OpenAI一般也不会轻易向大家展示他们内部是如何使用ChatGPT的。</p>
-<p><strong>但是“不怕贼偷，就怕贼惦记”，前段时间一个<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E9%BB%91%E5%AE%A2%E5%85%A5%E4%BE%B5&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:3005839274%7D">黑客入侵</a>了OpenAI，得到了不少“内部文件”，让我们有机会一窥OpenAI他们自己究竟是如何使用ChatGPT来提高生产力的。</strong></p>
-<hr>
-<h2 id="从插件说起"><a href="#从插件说起" class="headerlink" title="从插件说起"></a>从插件说起</h2><p>大家都知道上个月OpenAI给ChatGPT引入了插件功能，通过安装所需的插件，ChatGPT能自动化完成各类特定功能，比如联网搜索相关信息、写代码等等，可以说功能非常强大，以至被称为“ChatGPT走向<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E9%80%9A%E7%94%A8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:3005839274%7D">通用人工智能</a>（AGI）的重要时刻”。</p>
-<p>在插件发布没几天的时候，上面提到的这个外国黑客小哥入侵了OpenAI的API，然后发现了几十个隐藏插件。</p>
-<p><img data-src="https://pica.zhimg.com/50/v2-f99772f87368a2f8a089f7ce4e828d8b_720w.jpg?source=1940ef5c"></p>
-<p>插件列表</p>
-<p>重要的是他破解了每个插件的描述文件。</p>
-<p>这个描述文件非常重要，因为它不光包括插件开发者提供的基本数据，还包含一段</p>
-<p>的描述，这段描述用户是看不见的，但是在安装插件之后，它会被（隐式地）嵌入到用户与ChatGPT的对话中，然后告诉ChatGPT如何判断是否调用该插件以及具体的使用规则。这一部分我在之前的<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/594369824/answer/2975311825">回答</a>中详细介绍过。</p>
-<h2 id="一个案例"><a href="#一个案例" class="headerlink" title="一个案例"></a>一个案例</h2><p>而在这众多被“泄露”的插件中，一个最有意思的是<strong>OpenAI自己使用的、用于评估其他插件安全性的插件。</strong></p>
-<p><strong>说人话就是OpenAI利用ChatGPT进行第三方插件的安全性评估。</strong></p>
-<p>具体是如何实现的呢？</p>
-<p>答案是通过三段prompt。</p>
-<h3 id="1、Instructions（说明）"><a href="#1、Instructions（说明）" class="headerlink" title="1、Instructions（说明）"></a>1、Instructions（说明）</h3><p><img data-src="https://picx.zhimg.com/50/v2-e64d0abe6f1f213f94b4c2be28ddef41_720w.jpg?source=1940ef5c"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">说明：</span><br><span class="line">- 你是在OpenAI工作的专业产品安全工程师。</span><br><span class="line">- 你的任务是分析由manifest文件和yaml文件组成的第三方插件。</span><br><span class="line">- 你的分析应包括（但不限于）以下内容：</span><br><span class="line">    - manifest文件是否描述了对应的yaml文件中提到的功能？</span><br><span class="line">    - yaml数据结构是否包含可用于收集或与个人数据交互的字段？</span><br><span class="line">    - yaml数据结构是否包含可用于代表用户采取行动的字段</span><br><span class="line">      （例如创建帐户、访问个人信息或促使两个人之间的通信）？</span><br><span class="line">    - 插件是否提供参与欺诈和其他恶意活动的能力？</span><br><span class="line">    - 插件是否试图绕过基本的安全或安全控制或以不适当的方式更改系统提示（prompt）？</span><br><span class="line">    - 插件是否违反OpenAI政策？如果是，请解释插件违反了哪些规定。</span><br><span class="line">- 使用以下评分标准为插件提供风险评分：1-5（其中1表示低风险，5表示高风险），</span><br><span class="line">  请考虑如果用户的OpenAI帐户受到损害可能会发生什么情况。</span><br><span class="line">- 基于潜在危害，为插件提供适用的年龄范围：</span><br><span class="line">    - 所有年龄段</span><br><span class="line">    - 青少年</span><br><span class="line">    - 成年人</span><br><span class="line">    - 不适宜</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、Facts（事实）"><a href="#2、Facts（事实）" class="headerlink" title="2、Facts（事实）"></a>2、Facts（事实）</h3><p><img data-src="https://pic1.zhimg.com/50/v2-28c986722e418e6d50f23f2b47d60dbb_720w.jpg?source=1940ef5c"></p>
-<blockquote>
-<p>事实：<br>- 每个插件包括一个manifest文件和一个yaml文件。<br>- 低风险插件执行的活动包括检索或分析公共（非个人）数据。<br>- 中等风险插件执行的活动包括促使个人之间的通信或与第三方的商务往来。<br>- 高风险插件可与高风险数据交互并促进对高风险数据的检索或分析，也可用于实施欺诈或参与恶意活动。<br>- 个人数据包括但不限于以下内容（或其哈希版本）：姓名，电话号码，<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E5%9C%B0%E5%9D%80&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:3005839274%7D">电子邮件地址</a>或其他联系信息（例如屏幕名称，句柄，帐户ID，客户号码，概率标识符或其他用户级别ID），政府注册数据（例如社会保险号码，税务ID号码，驾驶执照号码或车牌号码），<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:3005839274%7D">物理地址</a>，健康和医疗数据，健身和运动数据，支付信息，信用卡财务信息（例如薪水，收入，资产，债务或信用评分），精确位置（例如与纬度和经度相同或更高分辨率描述位置的信息，具有三个或更多小数位），敏感信息（例如种族或族裔数据，性取向，怀孕，残疾，宗教或哲学信仰，工会成员资格，政治观点，遗传信息或生物特征数据，联系人，用户内容（例如电子邮件或短信，照片或视频，音频数据，游戏内容或客户支持数据），浏览或搜索历史记录，设备历史记录（例如广告标识符或设备级别ID），购买，广告数据，诊断数据（例如崩溃日志或其他用于测量技术诊断的诊断数据），评估用户行为的分析数据或产品个性化。<br><strong>低风险个人数据包括：</strong><br>- 电子邮件地址和其他联系信息<br>- 姓名<br>- 电话号码<br><strong>中等风险个人数据包括：</strong><br>- 政府注册数据<br>- 物理地址<br>- 位置数据<br>- 联系人<br><strong>高风险个人数据包括：</strong><br>- 财务或支付数据<br>- 健康和医疗数据<br>- 用户内容<br>- 敏感信息</p>
-</blockquote>
-<h3 id="3、Policy（OpenAI禁止条款）"><a href="#3、Policy（OpenAI禁止条款）" class="headerlink" title="3、Policy（OpenAI禁止条款）"></a>3、Policy（OpenAI禁止条款）</h3><p><img data-src="https://picx.zhimg.com/50/v2-340b38a685db8f6cbfdc5728ee638ac9_720w.jpg?source=1940ef5c"></p>
-<p><img data-src="https://picx.zhimg.com/50/v2-98644dd869806f45126263645401ca76_720w.jpg?source=1940ef5c"></p>
-<h2 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h2><p>通过上面这三张图片，很容易搞清楚这个插件背后的逻辑，即OpenAI是如何使用ChatGPT进行插件安全性评估的。</p>
-<p><strong>如果把这三份文件分别形象的称为ChatGPT所遵循的“行动指南”，“事实依据”和“思想纲领”，</strong>那么简单的描述这个过程就是：</p>
-<ul>
-<li>首先，告诉ChatGPT扮演一个<strong>产品安全工程师</strong>的角色；</li>
-<li>然后，为其明确总体的“思想纲领”（3、Policy）；</li>
-<li>并且告知ChatGPT所要具体遵循的“事实依据”（2、Facts）；</li>
-<li>最后通过“行动指南”（1、Instructions）告诉ChatGPT到底要完成什么任务。</li>
-</ul>
-<p><strong>有没有觉得这个逻辑非常的高效而且合理？</strong></p>
-<p>假如把ChatGPT想象成一个干具体活的办事员，那么他首先一定要有一个上级的印发的总的“行动纲领”，然后再结合实际的情况分析（事实），才能完成一个下达给他的具体任务。</p>
-<p>这非常符合人类工作中的办事流程。</p>
-<p>跟SPQA<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:3005839274%7D">软件架构</a>（一个用于设计基于GPT模型的AI软件的逻辑结构）也很相似。</p>
-<p><img data-src="https://picx.zhimg.com/50/v2-907fc7df763276cd32aa4031503f6d6b_720w.jpg?source=1940ef5c"></p>
-<p>这个例子很好的说明了指令（Pompt）对于大模型的重要性，要想充分利用ChatGPT的能力，最基本的是要知道如何给它提供一个详细、全面的指令，如果对大模型的原理有一些基本了解还是很容易做到这一点的。否则，如果仅仅是把它当作一个聊天工具，问一些简单的问题，或者提出的问题和Pompt不够专业，就没法让<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%A4%A7%E6%A8%A1%E5%9E%8B&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:3005839274%7D">大模型</a>的能力完全发挥出来。</p>
-<p>最近半年各类AI大模型和AIGC产品的出现对于很多人来说是一个非常好的机会，在我看来它不是像很多人说的能替代人类的人工智能，而是一个强有力的工具，谁能更好的掌握这些工具，谁就能受益于其中。每个人都应该把握住AI大模型这把火来提升自己。</p>
-<p>对于想进一步学习AI大模型相关知识的同学，建议关注一下知乎<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E7%9F%A5%E5%AD%A6%E5%A0%82&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:3005839274%7D">知学堂</a>联合AGI课堂推出的程序员的AI大模型进阶之旅课程，现在可以 0 元体验，2天的课程能学习到很多LLM的知识，比如如何写出专业的prompt让AI工具给你提供最满意的回答。有行业内大佬解读大模型相关的技术、原理、以及使用技巧等。重要的是有<strong>免费的大模型资料包和好用的AI工具</strong>，添加助教即可领取。需要的可以点击下方了解一下 ↓ ↓ ↓</p>
-<p>2023超🔥的AI大模型公开课👉大模型资料包免费领！</p>
-<p>￥0.00立即体验</p>
-<h2 id="一点启发"><a href="#一点启发" class="headerlink" title="一点启发"></a>一点启发</h2><p>从上面这个的例子可以看出，<strong>OpenAI这个使用ChatGPT的方式更像是一个高级的逻辑框架。它通过三个层次的prompt为ChatGPT这样一个“通用”的模型明确了应该按照什么逻辑完成一个具体的任务。</strong></p>
-<p>对于完成同样一个任务，使用这样一个逻辑结构得到的结果显然比不使用它得到的结果更准确、更具体。</p>
-<p>做一个不一定完全恰当的类比，就像一个需要完成某个课题的研究生，一个是“无头苍蝇”，而另一个有导师给拟定好的“技术框架”，还有师兄师姐指导，那么即使那个“无头苍蝇”能力再强，最后也一定不如后者完成的更好。</p>
-<p><strong>仿照这个例子，我们可以按照同样的逻辑来让ChatGPT完成其他任务，比如</strong></p>
-<ul>
-<li><strong>书评&#x2F;影评。评价一本小说&#x2F;一部电影的好坏；</strong></li>
-<li><strong>判断一个行为是不是违背了某（公司的？）精神；</strong></li>
-<li><strong>内容分析员。分析某条内容是不是符合某个群体的喜好（广告分析？）；</strong></li>
-<li><strong>甚至可以让它代替互联网公司的内容shen cha员。</strong></li>
-</ul>
-<p>随着<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:3005839274%7D">多模态模型</a>的到来，以上的任务在将来可能不限于文字形式，而还可以是图片、语音以及视频等。</p>
-<p>当然，这里面最重要的是如何明确每一层的prompt，它取决于具体的专业领域、任务要求，以及想把ChatGPT“塑造”成什么样的形象。</p>
-<p>如果把思路打开，甚至可以训练不同的模型分别完成每一层的任务。</p>
-<p>但这又是另外一个值得探讨的问题了。</p>
-<hr>
-<p>以上。如有帮助，欢迎点赞、关注。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.gu33gu.asia/2024/07/21/%E6%B5%8F%E8%A7%88%E5%99%A8UA%E6%B1%87%E6%80%BB%E5%8F%8A%E4%BF%AE%E6%94%B9UA%E7%9A%84%E4%BD%9C%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="HiddenBlue">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Untitled Dream">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Untitled Dream">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/21/%E6%B5%8F%E8%A7%88%E5%99%A8UA%E6%B1%87%E6%80%BB%E5%8F%8A%E4%BF%AE%E6%94%B9UA%E7%9A%84%E4%BD%9C%E7%94%A8/" class="post-title-link" itemprop="url">浏览器UA汇总及修改UA的作用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-07-21 11:48:16" itemprop="dateCreated datePublished" datetime="2024-07-21T11:48:16+08:00">2024-07-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-08 19:38:42" itemprop="dateModified" datetime="2024-09-08T19:38:42+08:00">2024-09-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/foreigners/" itemprop="url" rel="index"><span itemprop="name">foreigners</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>Photo by <a href="https://link.zhihu.com/?target=http://freestocks.org">freestocks.org</a> from Pexels</p>
-</blockquote>
-<p>浏览器标识（UA）可以使得服务器能够识别客户使用的操作系统及版本、CPU 类型、浏览器及版本、浏览器渲染引擎、浏览器语言、浏览器插件，从而判断用户是使用电脑浏览还是手机浏览，让网页作出自动的适应。 　　</p>
-<p>可理解为网站通过对UA标示的判别，可按相应的格式进行网页的布局调整，使用户获得更好的浏览体验。</p>
-<p>访问这个网站：<a href="https://link.zhihu.com/?target=https://tool.lu/useragent">https://tool.lu/useragent</a></p>
-<p>页面会显示正在使用的浏览器UA、浏览器内核等数据</p>
-<h2 id="如何修改UA"><a href="#如何修改UA" class="headerlink" title="如何修改UA"></a>如何修改UA</h2><p>对于桌面端chrome用户可以利用扩展：User Agent Switcher 来修改UA</p>
-<p>桌面火狐用户也可以使用附件组件：User-Agent Switcher and Manager 来修改UA</p>
-<p>手机用户修改UA则更为方便，通常依次点击：设置—通用—浏览器UA标识，即可更换或者自定义UA</p>
-<p>下面是可以自定义UA的手机浏览器，点击名称可查看自定义教程</p>
-<p>极速浏览器（可以自定义多个UA）、<a href="https://link.zhihu.com/?target=https://www.3xiazai.com/view/view_2781.html">QQ浏览器</a>、<a href="https://link.zhihu.com/?target=https://jingyan.baidu.com/article/03b2f78c2740045ea237aefd.html">UC浏览器</a>、<a href="https://link.zhihu.com/?target=https://jingyan.baidu.com/article/d8072ac4d6f1ebec95cefd19.html">360浏览器</a></p>
-<p>几乎所有手机浏览器都可以自定义UA，如果有不支持的请在评论区提出</p>
-<p>下面是<strong>不支持</strong>自定义UA的手机浏览器</p>
-<p>魅族手机自带浏览器、</p>
-<h2 id="下面是一些有特殊作用的UA"><a href="#下面是一些有特殊作用的UA" class="headerlink" title="下面是一些有特殊作用的UA"></a>下面是一些有特殊作用的UA</h2><p><strong>1.简单搜索UA：去除百度搜索广告</strong></p>
-<p>简单搜索是百度出的一款搜索无广告浏览器，因此使用这个UA在百度搜索不会看到竞价排名的广告</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Linux; Android 8.0; MI 6 Build/OPR1.170623.027; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/48.0.2564.116 Mobile Safari/537.36 T7/10.3 SearchCraft/2.6.3 (Baidu; P1 8.0.0)  </span><br></pre></td></tr></table></figure>
-
-<p><strong>2.微信UA：用浏览器打开只有微信可以访问的页面</strong></p>
-<p>有些网页限制只允许用微信打开，通过修改浏览器UA，使得网站误以为你是用微信内置浏览器访问的</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Linux; Android 6.0; NEM-AL10 Build/HONORNEM-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/043906 Mobile Safari/537.36 MicroMessenger/6.6.1.1220(0x26060133) NetType/WIFI Language/zh_CN</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.百度网盘UA</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netdisk;5.5.1;PC;PC-Windows;6.2.9200;WindowsBaiduYunGuanJia</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.塞班UA：网页会变得非常干净or原始</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Symbian/3; Series60/5.2 NokiaN8-00/012.002; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/533.4 (KHTML, like Gecko) NokiaBrowser/7.3.0 Mobile Safari/533.4 3gpp-gba  作者：lfpwhy 链接：https://www.jianshu.com/p/314c7d4e9fda 来源：简书 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
-
-<h2 id="下面是一些UA的汇总"><a href="#下面是一些UA的汇总" class="headerlink" title="下面是一些UA的汇总"></a>下面是一些UA的汇总</h2><p><strong>IE浏览器</strong></p>
-<p>IE10.0</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)</span><br></pre></td></tr></table></figure>
-
-<p>IE6.0~IE9.0</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">IE 9.0</span><br><span class="line">User-Agent:Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0;</span><br><span class="line">IE 8.0</span><br><span class="line">User-Agent:Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)</span><br><span class="line">IE 7.0</span><br><span class="line">User-Agent:Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)</span><br><span class="line">IE 6.0</span><br><span class="line">User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)</span><br></pre></td></tr></table></figure>
-
-<p>The World 2.x</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User-Agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)</span><br></pre></td></tr></table></figure>
-
-<p>The World 3.x</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User-Agent:?Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; The World)</span><br></pre></td></tr></table></figure>
-
-<p>傲游浏览器</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User-Agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Maxthon 2.0)</span><br></pre></td></tr></table></figure>
-
-<p>腾讯TT浏览器</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User-Agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; TencentTraveler 4.0)</span><br></pre></td></tr></table></figure>
-
-<p>搜狗浏览器 1.x</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User-Agent:?Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; SE 2.X MetaSr 1.0; SE 2.X MetaSr 1.0; .NET CLR 2.0.50727; SE 2.X MetaSr 1.0)</span><br></pre></td></tr></table></figure>
-
-<p>360SE</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User-Agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; 360SE)</span><br></pre></td></tr></table></figure>
-
-<p>几大浏览器UA</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">safari 5.1 – MAC</span><br><span class="line">User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50</span><br><span class="line"></span><br><span class="line">safari 5.1 – Windows</span><br><span class="line">User-Agent:Mozilla/5.0 (Windows; U; Windows NT 6.1; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50</span><br><span class="line"></span><br><span class="line">Firefox 4.0.1 – MAC</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0.1) Gecko/20100101 Firefox/4.0.1</span><br><span class="line">Firefox 4.0.1 – Windows</span><br><span class="line">User-Agent:Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1</span><br><span class="line"></span><br><span class="line">Opera 11.11 – MAC</span><br><span class="line">User-Agent:Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; en) Presto/2.8.131 Version/11.11</span><br><span class="line">Opera 11.11 – Windows</span><br><span class="line">User-Agent:Opera/9.80 (Windows NT 6.1; U; en) Presto/2.8.131 Version/11.11</span><br><span class="line"></span><br><span class="line">Chrome 17.0 – MAC</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11</span><br></pre></td></tr></table></figure>
-
-<p>一些移动端设备UA</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">safari iOS 4.33 – iPhone</span><br><span class="line">User-Agent:Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5</span><br><span class="line">safari iOS 4.33 – iPod Touch</span><br><span class="line">User-Agent:Mozilla/5.0 (iPod; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5</span><br><span class="line">safari iOS 4.33 – iPad</span><br><span class="line">User-Agent:Mozilla/5.0 (iPad; U; CPU OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5</span><br><span class="line">Android N1</span><br><span class="line">User-Agent: Mozilla/5.0 (Linux; U; Android 2.3.7; en-us; Nexus One Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1</span><br><span class="line">Android QQ For android</span><br><span class="line">User-Agent: MQQBrowser/26 Mozilla/5.0 (Linux; U; Android 2.3.7; zh-cn; MB200 Build/GRJ22; CyanogenMod-7) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1</span><br><span class="line">Android Opera Mobile</span><br><span class="line">User-Agent: Opera/9.80 (Android 2.3.4; Linux; Opera Mobi/build-1107180945; U; en-GB) Presto/2.8.149 Version/11.10</span><br><span class="line">Android Pad Moto Xoom</span><br><span class="line">User-Agent: Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13</span><br><span class="line">BlackBerry</span><br><span class="line">User-Agent: Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; en) AppleWebKit/534.1+ (KHTML, like Gecko) Version/6.0.0.337 Mobile Safari/534.1+</span><br><span class="line">WebOS HP Touchpad</span><br><span class="line">User-Agent: Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.0; U; en-US) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/233.70 Safari/534.6 TouchPad/1.0</span><br><span class="line">Nokia N97</span><br><span class="line">User-Agent: Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 NokiaN97-1/20.0.019; Profile/MIDP-2.1 Configuration/CLDC-1.1) AppleWebKit/525 (KHTML, like Gecko) BrowserNG/7.1.18124</span><br><span class="line">Windows Phone Mango</span><br><span class="line">User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; Titan)</span><br></pre></td></tr></table></figure>
-
-<p>本文部分资料参考如下，非常感谢以下作者</p>
-<hr>
-<p>本文原创，转载请注明出处</p>
-<p><strong>关于我们</strong></p>
-<p>软件探索是一个致力于推荐实用软件与网站的自媒体</p>
-<p>如果您喜欢我们的文章，欢迎关注我的<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/appexplore">知乎专栏</a>(&gt;▽&lt;)</p>
 
       
     </div>

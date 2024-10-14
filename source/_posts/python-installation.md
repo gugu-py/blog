@@ -2,7 +2,7 @@
 title: How to install Python in a professional way
 date: 2024-09-27 22:28:35
 tags: Python
-categories:thought
+categories: code
 ---
 
 > In every tutorial, first read to the end, and then operate.
