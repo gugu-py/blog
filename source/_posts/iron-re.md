@@ -13,7 +13,7 @@ Inspired by [财神猫猫](https://space.bilibili.com/439176875)'s live stream f
 
 ## The Overall Structure
 
-![[HiddenBlue/code/_resources/flowchart iron.png]]
+![](<https:/blog.gu33gu.asia/_resources/flowchart iron.png> "a")
 
 Three main components make up this meme-streaming system:
 
@@ -34,7 +34,7 @@ There are numerous ways to build an API, but `FastAPI` was my choice for its sim
 To connect with the COS bucket, you’ll need the `coscmd` library from Tencent. Follow the [official documentation](https://cloud.tencent.com/document/product/436/10976) to configure `CosConfig` with the basic domain configuration method.
 
 The process of handling client messages and broadcasting them:
-![[HiddenBlue/code/_resources/Pasted image 20241102162325.png]]
+![](<https:/blog.gu33gu.asia/_resources/Pasted image 20241102162325.png> "a")
 
 ### Frontend
 
