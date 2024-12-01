@@ -1,7 +1,7 @@
 ---
 title: ancient Egyptian birds in Shanghai Museum
 date: 2024-11-06 23:37:34
-tags: history, birds
+tags: history, birds, recommended
 categories: thought
 ---
 

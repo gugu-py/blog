@@ -1,9 +1,12 @@
 ---
 title: guide
-date: 2077-08-14 17:29:44
+date: 2024-08-14 17:29:44
 tags:
 categories: code, thought
+sticky: 100
 ---
+
+You can see a list of [Recommended Posts](/tags/recommended/) here.
 
 For better experience to read this blog, here are a few suggestions for you:
 

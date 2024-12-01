@@ -1,7 +1,7 @@
 ---
 title: energy-saving philosophy
 date: 2024-09-08 19:36:14
-tags: philosophy
+tags: philosophy, recommended
 categories: thought
 ---
 

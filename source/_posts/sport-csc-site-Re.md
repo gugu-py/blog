@@ -1,7 +1,7 @@
 ---
 title: How I built sport-csc.site
 date: 2024-07-18 22:55:26
-tags: [website, re, Python]
+tags: [website, re, Python, recommended]
 categories: code
 ---
 

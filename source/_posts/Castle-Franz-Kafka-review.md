@@ -1,7 +1,7 @@
 ---
 title: Castle (Franz Kafka) review
 date: 2024-09-01 10:32:03
-tags: book
+tags: book, recommended
 categories: thought
 ---
 

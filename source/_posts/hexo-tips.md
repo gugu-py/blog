@@ -15,3 +15,5 @@ new post: `hexo new post <title>`
 new draft: `hexo new draft <title>`
 new page: `hexo new page <title>`
 scaffold folders are the templates of these 'articles', creating scaffolds: `hexo new <scaffold name> <title>`
+
+readmore widget: `<!-- more -->`
