@@ -1,7 +1,7 @@
 ---
 title: Cowboy Bebop EP23
 date: 2024-07-29 22:22:14
-tags: [anime, Cowboy Bebop]
+tags: [anime, Cowboy Bebop, philosophy]
 categories: thought
 ---
 

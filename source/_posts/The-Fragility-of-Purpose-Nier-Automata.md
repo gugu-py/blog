@@ -1,7 +1,7 @@
 ---
 title: 'The Fragility of Purpose: Nier: Automata'
 date: 2024-12-01 13:36:25
-tags: recommended
+tags: [recommended, philosophy, Nier Automata, game]
 categories: thought
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: The Devaluation of Humanity in the Age of Technology
 date: 2024-09-27 22:20:15
-tags: recommended
+tags: [recommended, philosophy, Cyberpunk Edgerunners, anime]
 categories: thought
 ---
 

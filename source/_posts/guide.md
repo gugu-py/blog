@@ -2,7 +2,7 @@
 title: guide
 date: 2024-08-14 17:29:44
 tags:
-categories: code, thought
+categories: thought
 sticky: 100
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'Narrative Focus and Epiphanies in Frieren: Beyond Journey’s End'
 date: 2024-11-19 12:39:08
-tags:
+tags: [anime, Frieren Beyond Journeys End]
 categories: thought
 ---
 
