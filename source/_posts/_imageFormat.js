@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // String to replace the root directory of the images
-const newRootDir = 'https:///blog.gu33gu.asia/_resources/';
+const newRootDir = 'https:///blog.gu33gu.asia//_resources/';
 
 // Get the directory where the script is located
 const directoryPath = path.dirname(__filename);
