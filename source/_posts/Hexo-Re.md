@@ -1,7 +1,7 @@
 ---
 title: Hexo Re
 date: 2024-07-17 13:44:19
-tags: [Hexo, re, Website]
+tags: [Hexo, re, Website, recommended]
 categories: code
 ---
 
